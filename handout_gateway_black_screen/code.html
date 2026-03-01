@@ -99,13 +99,11 @@
         </div>
     </div>
 
-    <!-- Firebase Auth Routing Protocol -->
+    <!-- Firebase Auth Routing Protocol (Vercel-Hardened) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+        import { getAuth, signInWithRedirect, signInWithPopup, getRedirectResult, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-        // Dynamic Environment Sync
-        // Mapped from NEXT_PUBLIC_FIREBASE_PROJECT_ID & core environment variables
         const firebaseConfig = {
             apiKey: "AIzaSyDCnutcaRoji-drYFtvDF17s4TQXlPaP0E",
             authDomain: "savehxpe-prod.firebaseapp.com",
@@ -119,28 +117,76 @@
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-        // Prevent double-login if already authenticated
+        const signInBtn = document.getElementById('google-signin-btn');
+        const footerText = document.querySelector('.absolute.bottom-8 span:last-child');
+
+        // Step 1: Check if user is returning from a redirect sign-in
+        getRedirectResult(auth)
+            .then((result) => {
+                if (result && result.user) {
+                    console.log("[VOLTFLOW] Redirect sign-in complete:", result.user.email);
+                    window.location.href = '/dashboard';
+                }
+            })
+            .catch((error) => {
+                console.error("[VOLTFLOW] Redirect result error:", error.code, error.message);
+                if (footerText) footerText.textContent = `Error: ${error.code}`;
+            });
+
+        // Step 2: If already authenticated, skip to dashboard
         onAuthStateChanged(auth, (user) => {
             if (user) {
+                console.log("[VOLTFLOW] Active session detected:", user.email);
                 window.location.href = '/dashboard';
             }
         });
 
-        const signInBtn = document.getElementById('google-signin-btn');
-
+        // Step 3: Sign-in button handler — tries popup first, falls back to redirect
         signInBtn.addEventListener('click', async () => {
-            // Aesthetic Loading State
             const originalText = signInBtn.innerHTML;
             signInBtn.innerHTML = '<span class="relative z-10 text-black text-lg font-bold tracking-widest uppercase flex items-center gap-3">AUTHENTICATING...</span>';
+            signInBtn.disabled = true;
 
             try {
+                // Attempt popup first (works on desktop browsers)
                 const result = await signInWithPopup(auth, provider);
-                // Redirection immediately executes:
+                console.log("[VOLTFLOW] Popup sign-in success:", result.user.email);
                 window.location.href = '/dashboard';
-            } catch (error) {
-                console.error("Auth Error:", error);
-                signInBtn.innerHTML = originalText;
-                // Aesthetic glitch or alert could go here for failures
+            } catch (popupError) {
+                console.warn("[VOLTFLOW] Popup blocked or failed:", popupError.code);
+
+                // If popup is blocked/fails, fall back to redirect (mobile-safe)
+                if (popupError.code === 'auth/popup-blocked' ||
+                    popupError.code === 'auth/popup-closed-by-user' ||
+                    popupError.code === 'auth/cancelled-popup-request' ||
+                    popupError.code === 'auth/unauthorized-domain') {
+
+                    console.log("[VOLTFLOW] Falling back to redirect sign-in...");
+
+                    if (popupError.code === 'auth/unauthorized-domain') {
+                        // Show the specific error so the user knows what's wrong
+                        if (footerText) footerText.textContent = `Domain not authorized — add this domain in Firebase Console`;
+                        signInBtn.innerHTML = originalText;
+                        signInBtn.disabled = false;
+                        return;
+                    }
+
+                    try {
+                        await signInWithRedirect(auth, provider);
+                        // User will be redirected to Google, then back here
+                        // getRedirectResult above will catch them on return
+                    } catch (redirectError) {
+                        console.error("[VOLTFLOW] Redirect also failed:", redirectError);
+                        signInBtn.innerHTML = originalText;
+                        signInBtn.disabled = false;
+                        if (footerText) footerText.textContent = `Error: ${redirectError.code}`;
+                    }
+                } else {
+                    console.error("[VOLTFLOW] Unexpected auth error:", popupError);
+                    signInBtn.innerHTML = originalText;
+                    signInBtn.disabled = false;
+                    if (footerText) footerText.textContent = `Error: ${popupError.code}`;
+                }
             }
         });
     </script>
