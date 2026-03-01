@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>HANDOUT. SAVEHXPE x FREDDIE GIBBS</title>
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind Config -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HANDOUT. SAVEHXPE x FREDDIE GIBBS</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind Config -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -25,92 +32,118 @@
                     fontFamily: {
                         "display": ["Spline Sans", "sans-serif"]
                     },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
             },
         }
     </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-white selection:text-black">
-<div class="relative flex h-screen w-full flex-col overflow-hidden bg-black">
-<!-- Abstract gradient background accent (very subtle) -->
-<div class="absolute inset-0 bg-gradient-to-tr from-purple-900/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
-<div class="layout-container flex h-full grow flex-col items-center justify-center p-6 sm:p-12 relative z-10">
-<div class="flex flex-col items-center justify-center max-w-[800px] w-full gap-8 md:gap-12 animate-in fade-in zoom-in duration-700 ease-out">
-<!-- Main Typography Block -->
-<div class="flex flex-col items-center text-center space-y-2">
-<h1 class="text-white tracking-tighter text-[15vw] sm:text-[120px] font-bold leading-[0.85] uppercase">
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-white selection:text-black">
+    <div class="relative flex h-screen w-full flex-col overflow-hidden bg-black">
+        <!-- Abstract gradient background accent (very subtle) -->
+        <div
+            class="absolute inset-0 bg-gradient-to-tr from-purple-900/10 via-transparent to-transparent opacity-30 pointer-events-none">
+        </div>
+        <div class="layout-container flex h-full grow flex-col items-center justify-center p-6 sm:p-12 relative z-10">
+            <div
+                class="flex flex-col items-center justify-center max-w-[800px] w-full gap-8 md:gap-12 animate-in fade-in zoom-in duration-700 ease-out">
+                <!-- Main Typography Block -->
+                <div class="flex flex-col items-center text-center space-y-2">
+                    <h1
+                        class="text-white tracking-tighter text-[15vw] sm:text-[120px] font-bold leading-[0.85] uppercase">
                         HANDOUT<span class="text-primary">.</span>
-</h1>
-<div class="w-full h-px bg-white/20 my-6 max-w-[120px]"></div>
-<h2 class="text-white/90 tracking-[0.2em] text-sm sm:text-xl md:text-2xl font-medium leading-tight uppercase max-w-2xl">
+                    </h1>
+                    <div class="w-full h-px bg-white/20 my-6 max-w-[120px]"></div>
+                    <h2
+                        class="text-white/90 tracking-[0.2em] text-sm sm:text-xl md:text-2xl font-medium leading-tight uppercase max-w-2xl">
                         SAVEHXPE <span class="mx-2 text-white/40">x</span> FREDDIE GIBBS
                     </h2>
-</div>
-<!-- Action Button -->
-<div class="flex w-full justify-center pt-8 sm:pt-12">
-<button id="google-signin-btn" class="group relative flex w-full sm:w-auto min-w-[280px] cursor-pointer items-center justify-center overflow-hidden rounded-none bg-white px-8 py-5 transition-all hover:bg-gray-200 active:scale-95">
-<span class="relative z-10 text-black text-lg font-bold tracking-widest uppercase flex items-center gap-3">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+                <!-- Action Button -->
+                <div class="flex w-full justify-center pt-8 sm:pt-12">
+                    <button id="google-signin-btn"
+                        class="group relative flex w-full sm:w-auto min-w-[280px] cursor-pointer items-center justify-center overflow-hidden rounded-none bg-white px-8 py-5 transition-all hover:bg-gray-200 active:scale-95">
+                        <span
+                            class="relative z-10 text-black text-lg font-bold tracking-widest uppercase flex items-center gap-3">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                                    fill="#4285F4" />
+                                <path
+                                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                    fill="#34A853" />
+                                <path
+                                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                                    fill="#FBBC05" />
+                                <path
+                                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                                    fill="#EA4335" />
+                            </svg>
                             Sign In To Unlock
                         </span>
-<div class="absolute inset-0 -z-10 bg-white opacity-0 transition-opacity group-hover:opacity-10"></div>
-</button>
-</div>
-<!-- Footer / Metadata (Subtle) -->
-<div class="absolute bottom-8 left-0 right-0 flex justify-center opacity-40">
-<div class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-white">
-<span class="material-symbols-outlined text-[14px]">lock</span>
-<span>Gateway // V.01</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+                        <div
+                            class="absolute inset-0 -z-10 bg-white opacity-0 transition-opacity group-hover:opacity-10">
+                        </div>
+                    </button>
+                </div>
+                <!-- Footer / Metadata (Subtle) -->
+                <div class="absolute bottom-8 left-0 right-0 flex justify-center opacity-40">
+                    <div class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-white">
+                        <span class="material-symbols-outlined text-[14px]">lock</span>
+                        <span>Gateway // V.01</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- Firebase Auth Routing Protocol -->
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+    <!-- Firebase Auth Routing Protocol -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-    // Dynamic Environment Sync
-    // Mapped from NEXT_PUBLIC_FIREBASE_PROJECT_ID & core environment variables
-    const firebaseConfig = {
-      apiKey: "AIzaSyDCnutcaRoji-drYFtvDF17s4TQXlPaP0E",
-      authDomain: "savehxpe-prod.firebaseapp.com",
-      projectId: "savehxpe-prod",
-      storageBucket: "savehxpe-prod.firebasestorage.app",
-      messagingSenderId: "455262868358",
-      appId: "1:455262868358:web:c98826ea5691836321d207"
-    };
+        // Dynamic Environment Sync
+        // Mapped from NEXT_PUBLIC_FIREBASE_PROJECT_ID & core environment variables
+        const firebaseConfig = {
+            apiKey: "AIzaSyDCnutcaRoji-drYFtvDF17s4TQXlPaP0E",
+            authDomain: "savehxpe-prod.firebaseapp.com",
+            projectId: "savehxpe-prod",
+            storageBucket: "savehxpe-prod.firebasestorage.app",
+            messagingSenderId: "455262868358",
+            appId: "1:455262868358:web:c98826ea5691836321d207"
+        };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
 
-    // Prevent double-login if already authenticated
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            window.location.href = '../handout_drop_white_dashboard/code.html';
-        }
-    });
+        // Prevent double-login if already authenticated
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                window.location.href = '/dashboard';
+            }
+        });
 
-    const signInBtn = document.getElementById('google-signin-btn');
-    
-    signInBtn.addEventListener('click', async () => {
-        // Aesthetic Loading State
-        const originalText = signInBtn.innerHTML;
-        signInBtn.innerHTML = '<span class="relative z-10 text-black text-lg font-bold tracking-widest uppercase flex items-center gap-3">AUTHENTICATING...</span>';
-        
-        try {
-            const result = await signInWithPopup(auth, provider);
-            // Redirection immediately executes:
-            window.location.href = '../handout_drop_white_dashboard/code.html';
-        } catch (error) {
-            console.error("Auth Error:", error);
-            signInBtn.innerHTML = originalText;
-            // Aesthetic glitch or alert could go here for failures
-        }
-    });
-</script>
-</body></html>
+        const signInBtn = document.getElementById('google-signin-btn');
+
+        signInBtn.addEventListener('click', async () => {
+            // Aesthetic Loading State
+            const originalText = signInBtn.innerHTML;
+            signInBtn.innerHTML = '<span class="relative z-10 text-black text-lg font-bold tracking-widest uppercase flex items-center gap-3">AUTHENTICATING...</span>';
+
+            try {
+                const result = await signInWithPopup(auth, provider);
+                // Redirection immediately executes:
+                window.location.href = '/dashboard';
+            } catch (error) {
+                console.error("Auth Error:", error);
+                signInBtn.innerHTML = originalText;
+                // Aesthetic glitch or alert could go here for failures
+            }
+        });
+    </script>
+</body>
+
+</html>

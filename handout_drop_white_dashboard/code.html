@@ -163,7 +163,7 @@
         // Secure Session Guard & Tier Sync
         onAuthStateChanged(auth, (user) => {
             if (!user) {
-                window.location.href = '../handout_gateway_black_screen/code.html';
+                window.location.href = '/gateway';
             } else {
                 // Real-time Tier Watcher
                 onSnapshot(doc(db, "users", user.uid), (docSnap) => {
@@ -192,7 +192,7 @@
         if (profileBtn) {
             profileBtn.addEventListener('click', () => {
                 signOut(auth).then(() => {
-                    window.location.href = '../handout_gateway_black_screen/code.html';
+                    window.location.href = '/gateway';
                 });
             });
         }
