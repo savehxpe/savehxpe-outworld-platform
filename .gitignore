@@ -1,0 +1,55 @@
+# ═══════════════════════════════════════════════════════════
+# SAVEHXPE PRODUCTION .gitignore
+# Last updated: 2026-03-01 — HANDOUT Campaign Launch
+# ═══════════════════════════════════════════════════════════
+
+# ─── Environment & Secrets ────────────────────────────────
+.env
+.env.*
+.env.local
+.env.production
+.env.staging
+*.secret
+*.pem
+*.key
+service-account*.json
+*-credentials.json
+firebase-adminsdk*.json
+gcloud-service-key.json
+
+# ─── Firebase ─────────────────────────────────────────────
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+.firebaserc.bak
+ui-debug.log
+firestore-debug.log
+pubsub-debug.log
+database-debug.log
+
+# ─── Cloud Functions ──────────────────────────────────────
+functions/node_modules/
+functions/lib/
+functions/.env
+functions/.env.*
+functions/.secret.local
+
+# ─── Node / NPM ──────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log
+.pnp.*
+
+# ─── OS & IDE ─────────────────────────────────────────────
+.DS_Store
+._*
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ─── Build Artifacts ──────────────────────────────────────
+dist/
+build/
+*.tsbuildinfo

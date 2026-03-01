@@ -1,0 +1,23 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // PUBLIC PREVIEWS - zero auth, zero friction, maximum reach
+    match /previews/{allPaths=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // HANDOUT - FREE REWARD (Lead Gen) - Any authenticated user can download
+    match /handout/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // THE VAULT (Stems / Instrumentals) - Strictly STANDARD tier access only
+    match /{allPaths=**} {
+      allow read: if request.auth != null && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.tier.current == 'STANDARD';
+      allow write: if false;
+    }
+  }
+}

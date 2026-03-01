@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      allow update: if isOwner(userId)
+                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['tier'])
+                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['xp'])
+                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['trialEndsAt'])
+                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['collectibles'])
+                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['stripeCustomerId']);
+      allow create: if false;
+      allow delete: if false;
+    }
+
+    match /users/{userId}/transactions/{transactionId} {
+      allow read: if isOwner(userId);
+      allow write: if false;
+    }
+
+    match /users/{userId}/analytics/{analyticsId} {
+      allow read: if isOwner(userId);
+      allow write: if false;
+    }
+
+    match /system_config/{configId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /stripe_webhooks_deadletter/{docId} {
+      allow read: if false;
+      allow write: if false;
+    }
+  }
+}
