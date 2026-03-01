@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>HANDOUT Drop - Download Remix</title>
+    <title>HANDOUT Drop White Dashboard</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
@@ -22,114 +16,125 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#7f13ec",
-                        "background-light": "#ffffff", /* Stark white as requested */
-                        "background-dark": "#191022",
+                        "primary": "#000000",
+                        "background-light": "#ffffff",
+                        "background-dark": "#000000",
+                        "accent-gray": "#f3f3f3"
                     },
                     fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "body": ["Noto Sans", "sans-serif"],
+                        "display": ["Spline Sans", "sans-serif"]
                     },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
                 },
             },
         }
     </script>
 </head>
 
-<body
-    class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display text-slate-900 dark:text-slate-100">
-    <!-- Top Navigation -->
-    <header
-        class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 px-6 py-4 lg:px-12 bg-white dark:bg-background-dark sticky top-0 z-50">
-        <div class="flex items-center gap-3">
-            <div class="text-slate-900 dark:text-white">
-                <span class="material-symbols-outlined !text-3xl">token</span>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col antialiased">
+    <!-- Main Container -->
+    <div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden">
+
+        <!-- Navbar / Top Bar -->
+        <header class="flex w-full items-center justify-between px-10 py-6 border-b border-black/5">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-black text-2xl">graphic_eq</span>
+                <span class="text-black font-bold tracking-tight text-lg">HANDOUT</span>
             </div>
-            <h2 class="text-slate-900 dark:text-white text-xl font-bold tracking-tight">HANDOUT</h2>
-        </div>
-        <nav class="hidden md:flex items-center gap-8">
-            <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-semibold uppercase tracking-wider transition-colors"
-                href="#">Home</a>
-            <a class="text-slate-900 dark:text-white hover:text-primary dark:hover:text-primary text-sm font-semibold uppercase tracking-wider transition-colors"
-                href="#">Drops</a>
-            <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-semibold uppercase tracking-wider transition-colors"
-                href="#">Wallet</a>
-        </nav>
-        <div class="flex items-center gap-4">
-            <div
-                class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-white/5 rounded-full border border-slate-100 dark:border-white/10">
-                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                <span class="text-xs font-mono font-medium text-slate-500 dark:text-slate-400">0x4a...8f21</span>
-            </div>
-            <button id="profile-btn"
-                class="hidden sm:flex items-center justify-center rounded-lg h-10 px-6 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold uppercase tracking-wide hover:opacity-90 transition-opacity">
-                Profile
-            </button>
-            <button class="md:hidden text-slate-900 dark:text-white">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-        </div>
-    </header>
-    <!-- Main Content Area -->
-    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
-        <div
-            class="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]">
-        </div>
-        <div class="layout-content-container w-full max-w-[600px] flex flex-col items-center relative z-10">
-            <!-- Fan ID Tag with XP -->
-            <div class="mb-12 flex flex-col items-center animate-fade-in-up">
-                <div
-                    class="w-16 h-16 bg-slate-100 dark:bg-white/10 rounded-full flex items-center justify-center mb-6 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 shadow-sm">
-                    <span class="material-symbols-outlined !text-[32px]">fingerprint</span>
-                </div>
-                <h1
-                    class="text-slate-900 dark:text-white tracking-tighter text-4xl md:text-5xl font-bold leading-tight text-center">
-                    FAN ID: <span id="fan-id-display" class="font-mono text-slate-400 font-normal">#SH-LOADING</span>
-                </h1>
-                <div class="flex items-center gap-4 mt-4">
-                    <p class="text-primary text-sm font-bold uppercase tracking-widest"><span id="xp-display">...</span>
-                        XP</p>
-                    <div class="w-1 h-1 rounded-full bg-slate-300"></div>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-widest">
-                        Authenticated</p>
-                </div>
-            </div>
-            <!-- Primary Action: FREE REWARD (Lead Gen) -->
-            <div
-                class="w-full bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl p-6 mb-10 shadow-lg animate-in fade-in slide-in-from-bottom duration-700">
-                <div class="flex items-center gap-6 mb-8">
-                    <div class="w-20 h-20 bg-black rounded-lg flex-shrink-0 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-white text-4xl">album</span>
+            <div class="flex items-center gap-4">
+                <button id="profile-btn"
+                    class="h-8 w-8 rounded-full bg-gray-200 overflow-hidden relative cursor-pointer hover:ring-2 hover:ring-black/20 transition-all"
+                    title="Sign Out">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-black/40 text-lg">person</span>
                     </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-1">
-                            <span
-                                class="bg-green-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">Unlocked</span>
-                            <span class="text-xs font-mono text-slate-400 font-bold uppercase">Master Track</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="layout-container flex grow flex-col items-center justify-center py-10 px-6 sm:px-12">
+            <div class="layout-content-container flex flex-col max-w-[800px] w-full flex-1 justify-center">
+
+                <!-- Welcome Section -->
+                <div class="flex flex-col items-center text-center gap-2 mb-12">
+                    <h1 class="text-black text-5xl md:text-7xl font-black leading-tight tracking-tighter uppercase">
+                        Welcome, <span id="fan-name-display">Fan</span>
+                    </h1>
+                    <div class="flex items-center gap-2 mt-2">
+                        <span class="material-symbols-outlined text-black text-xl">bolt</span>
+                        <p class="text-black/60 text-lg md:text-xl font-medium tracking-wide"><span
+                                id="xp-display">...</span> XP MINTED</p>
+                    </div>
+                    <p class="text-black/30 text-xs font-mono mt-1" id="fan-id-display">#SH-LOADING</p>
+                </div>
+
+                <!-- Primary Action: Download -->
+                <div class="flex justify-center mb-20">
+                    <button id="download-remix-btn"
+                        class="group relative flex w-full max-w-md cursor-pointer items-center justify-center overflow-hidden h-16 px-8 bg-black hover:bg-black/90 transition-all duration-300 text-white shadow-2xl hover:shadow-xl hover:-translate-y-0.5">
+                        <span
+                            class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
+                        <span class="text-lg md:text-xl font-bold tracking-wider uppercase flex items-center gap-3">
+                            <span class="material-symbols-outlined text-2xl">download</span>
+                            Download Remix (WAV)
+                        </span>
+                    </button>
+                </div>
+
+                <!-- The Vault Section (Locked) -->
+                <div class="w-full mt-auto pt-10 pb-6 border-t border-black/5">
+                    <div id="vault-card"
+                        class="relative w-full rounded-xl bg-accent-gray/50 backdrop-blur-sm p-8 md:p-12 overflow-hidden border border-black/5">
+                        <!-- Lock Overlay content -->
+                        <div id="vault-content"
+                            class="relative z-10 flex flex-col items-center justify-center text-center gap-4">
+                            <div
+                                class="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-2">
+                                <span id="vault-icon" class="material-symbols-outlined text-black text-3xl">lock</span>
+                            </div>
+                            <h2 class="text-black tracking-tight text-2xl font-bold uppercase">The Vault</h2>
+                            <p id="vault-description"
+                                class="text-black/70 text-sm md:text-base font-medium max-w-[480px]">
+                                UPGRADE TO STANDARD TO UNLOCK EXCLUSIVE ARCHIVES
+                            </p>
+                            <div class="mt-2">
+                                <button id="vault-stems-btn"
+                                    class="text-xs font-bold tracking-widest text-black underline decoration-2 underline-offset-4 hover:text-black/70 transition-colors uppercase">
+                                    View Plans
+                                </button>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">The Remix</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">
-                            SaveHxpe x Freddie Gibbs</p>
+                        <!-- Decorative blurred background -->
+                        <div class="absolute -top-20 -left-20 w-64 h-64 bg-gray-200/50 rounded-full blur-3xl z-0"></div>
+                        <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-gray-300/30 rounded-full blur-3xl z-0">
+                        </div>
                     </div>
                 </div>
-                <button id="download-remix-btn"
-                    class="w-full h-16 bg-black hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-200 text-white dark:text-black text-lg font-bold tracking-wider rounded-xl flex items-center justify-center gap-3 transition-all transform hover:-translate-y-1 shadow-md">
-                    <span class="material-symbols-outlined">download</span>
-                    DOWNLOAD MASTER
-                </button>
             </div>
-            <!-- Secondary Action: THE VAULT (Paywall Tease) -->
-            <div class="w-full opacity-60 hover:opacity-100 transition-opacity">
-                <button id="vault-stems-btn"
-                    class="w-full h-14 border-2 border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 text-sm font-bold tracking-widest uppercase rounded-xl flex items-center justify-center gap-3 group">
-                    <span class="material-symbols-outlined text-slate-400 group-hover:text-primary">lock</span>
-                    Unlock Vault Stems & Instrumentals
-                </button>
-            </div>
-        </div>
-    </main>
-    <!-- Firebase Integration -->
+        </main>
+
+        <!-- Simple Footer -->
+        <footer class="w-full py-6 text-center border-t border-black/5">
+            <p id="footer-status" class="text-xs text-black/40 font-medium uppercase tracking-widest">© 2024 Handout
+                Music Drop</p>
+        </footer>
+    </div>
+
+    <style>
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+
+    <!-- Firebase Integration (VoltFlow Engine) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
@@ -152,43 +157,48 @@
         const functions = getFunctions(app);
         const storage = getStorage(app);
 
-        const fanIdElement = document.getElementById('fan-id-display');
-        const xpElement = document.getElementById('xp-display');
+        const fanNameEl = document.getElementById('fan-name-display');
+        const fanIdEl = document.getElementById('fan-id-display');
+        const xpEl = document.getElementById('xp-display');
         const downloadBtn = document.getElementById('download-remix-btn');
         const vaultBtn = document.getElementById('vault-stems-btn');
+        const vaultIcon = document.getElementById('vault-icon');
+        const vaultDesc = document.getElementById('vault-description');
         const profileBtn = document.getElementById('profile-btn');
+        const footerStatus = document.getElementById('footer-status');
 
         let currentTier = 'FREE';
 
-        // Secure Session Guard & Tier Sync
+        // ── Session Guard & Real-Time Tier Sync ──
         onAuthStateChanged(auth, (user) => {
             if (!user) {
                 window.location.href = '/gateway';
             } else {
-                // Real-time Tier Watcher
+                // Populate name from Google profile or email
+                const displayName = user.displayName || user.email?.split('@')[0] || 'Fan';
+                if (fanNameEl) fanNameEl.textContent = displayName.split(' ')[0];
+
+                // Real-time Firestore watcher
                 onSnapshot(doc(db, "users", user.uid), (docSnap) => {
                     if (docSnap.exists()) {
                         const data = docSnap.data();
                         currentTier = data.tier?.current || 'FREE';
 
-                        // UI Context Update
-                        if (fanIdElement) fanIdElement.textContent = `#SH-${user.uid.substring(0, 5).toUpperCase()}`;
-                        if (xpElement) xpElement.textContent = data.xp?.total || 0;
+                        if (fanIdEl) fanIdEl.textContent = `#SH-${user.uid.substring(0, 6).toUpperCase()}`;
+                        if (xpEl) xpEl.textContent = data.xp?.total || 0;
 
-                        // Handle Paywall Logic for Vault Button
+                        // Vault state sync
                         if (currentTier === 'STANDARD') {
-                            vaultBtn.innerHTML = '<span class="material-symbols-outlined text-green-500">lock_open</span> ACCESS VAULT CONTENT';
-                            vaultBtn.classList.add('border-primary');
-                        } else {
-                            vaultBtn.innerHTML = '<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">lock</span> Unlock Vault Stems & Instrumentals';
-                            vaultBtn.classList.remove('border-primary');
+                            vaultIcon.textContent = 'lock_open';
+                            vaultDesc.textContent = 'YOUR VAULT IS UNLOCKED — ACCESS STEMS & INSTRUMENTALS';
+                            vaultBtn.textContent = 'Enter Vault';
                         }
                     }
                 });
             }
         });
 
-        // Sign Out Flow
+        // ── Sign Out ──
         if (profileBtn) {
             profileBtn.addEventListener('click', () => {
                 signOut(auth).then(() => {
@@ -197,16 +207,19 @@
             });
         }
 
-        // Unlocked Download for ALL Authenticated Users (Master Track)
+        // ── Download Master Track (Free for all authenticated users) ──
         if (downloadBtn) {
             downloadBtn.addEventListener('click', async () => {
-                const originalContent = downloadBtn.innerHTML;
-                downloadBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> DECRYPTING...';
+                const btnSpan = downloadBtn.querySelector('span:last-child');
+                const originalText = btnSpan.innerHTML;
+                btnSpan.innerHTML = '<span class="material-symbols-outlined text-2xl animate-spin">sync</span> DECRYPTING...';
                 downloadBtn.disabled = true;
+                downloadBtn.classList.add('opacity-70');
 
                 try {
                     const fileRef = ref(storage, 'handout/HANDOUT - SAVEHXPE FT FREDDIE GIBS - MIX + MASTER.wav');
                     const url = await getDownloadURL(fileRef);
+
                     const a = document.createElement('a');
                     a.href = url;
                     a.download = 'HANDOUT_SAVEHXPE_FREDDIE_GIBBS_REMIX.wav';
@@ -214,23 +227,32 @@
                     a.click();
                     document.body.removeChild(a);
 
-                    downloadBtn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> DOWNLOADED';
-                    setTimeout(() => { downloadBtn.innerHTML = originalContent; downloadBtn.disabled = false; }, 3000);
+                    btnSpan.innerHTML = '<span class="material-symbols-outlined text-2xl">check_circle</span> DOWNLOADED';
+                    if (footerStatus) footerStatus.textContent = 'File delivered to your device';
+                    setTimeout(() => {
+                        btnSpan.innerHTML = originalText;
+                        downloadBtn.disabled = false;
+                        downloadBtn.classList.remove('opacity-70');
+                    }, 3000);
                 } catch (error) {
                     console.error("Download Error:", error);
-                    downloadBtn.innerHTML = '<span class="material-symbols-outlined">error</span> DOWNLOAD ERROR';
-                    setTimeout(() => { downloadBtn.innerHTML = originalContent; downloadBtn.disabled = false; }, 3000);
+                    btnSpan.innerHTML = '<span class="material-symbols-outlined text-2xl">error</span> ERROR';
+                    if (footerStatus) footerStatus.textContent = `Error: ${error.code || error.message}`;
+                    setTimeout(() => {
+                        btnSpan.innerHTML = originalText;
+                        downloadBtn.disabled = false;
+                        downloadBtn.classList.remove('opacity-70');
+                    }, 3000);
                 }
             });
         }
 
-        // Vault Stems Redirection (Stripe Paywall)
+        // ── Vault Stems Paywall (Stripe Checkout) ──
         if (vaultBtn) {
             vaultBtn.addEventListener('click', async () => {
                 if (currentTier === 'FREE') {
-                    const originalContent = vaultBtn.innerHTML;
-                    vaultBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> INITIATING CHECKOUT...';
-                    vaultBtn.disabled = true;
+                    const originalText = vaultBtn.textContent;
+                    vaultBtn.textContent = 'INITIATING CHECKOUT...';
 
                     try {
                         const createCheckoutSession = httpsCallable(functions, 'createCheckoutSession');
@@ -238,19 +260,17 @@
                         if (data.url) {
                             window.location.href = data.url;
                         } else {
-                            throw new Error("No URL returned");
+                            throw new Error("No checkout URL");
                         }
                     } catch (error) {
                         console.error("Stripe Error:", error);
-                        vaultBtn.innerHTML = '<span class="material-symbols-outlined">error</span> STRIPE ERROR';
-                        setTimeout(() => {
-                            vaultBtn.innerHTML = originalContent;
-                            vaultBtn.disabled = false;
-                        }, 3000);
+                        vaultBtn.textContent = 'CHECKOUT ERROR';
+                        if (footerStatus) footerStatus.textContent = `Error: ${error.code || error.message}`;
+                        setTimeout(() => { vaultBtn.textContent = originalText; }, 3000);
                     }
                 } else {
-                    // Future: Redirect to the Stems/Vault section
-                    alert("Stems Vault access active. Fetching data...");
+                    // STANDARD user — vault access
+                    alert("Vault access active. Stems section coming soon.");
                 }
             });
         }
